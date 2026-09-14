@@ -1,0 +1,12 @@
+name: WellSell
+version: '${version}'
+main: com.wellsetups.WellSell.Main
+api-version: '1.20'
+author: WellSetups
+description: Configurable inventory selling with audited transactions.
+folia-supported: true
+softdepend: [Vault, PlaceholderAPI, EconomyShopGUI, EconomyShopGUI-Premium, ShopGUIPlus, packetevents]
+# The supported Bukkit library loader downloads and caches these on first startup.
+libraries:
+  - org.xerial:sqlite-jdbc:3.49.1.0
+  - org.mariadb.jdbc:mariadb-java-client:3.5.3

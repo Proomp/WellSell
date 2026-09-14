@@ -1,0 +1,20 @@
+config-version: 1
+# Reloadable. Disabled preserves existing payout behavior. Statistics still accumulate.
+enabled: false
+requirement: MONEY_EARNED # MONEY_EARNED or ITEMS_SOLD; thresholds use the selected unit.
+combination: MULTIPLY # MULTIPLY or HIGHEST, combined with the permission multiplier.
+# Levels are derived from persisted earned/items totals, so edits apply after reload.
+# Quote tier keys; start at zero and use strictly increasing requirements.
+categories:
+  ores:
+    levels:
+      '1': {required: '0', multiplier: '1.00'}
+      '2': {required: '5000', multiplier: '1.05'}
+      '3': {required: '15000', multiplier: '1.10'}
+      '4': {required: '30000', multiplier: '1.15'}
+  farming:
+    levels:
+      '1': {required: '0', multiplier: '1.00'}
+      '2': {required: '2500', multiplier: '1.05'}
+      '3': {required: '10000', multiplier: '1.10'}
+      '4': {required: '25000', multiplier: '1.15'}

@@ -1,0 +1,16 @@
+config-version: 1
+# Optional PacketEvents 2.13.0 plugin; install it and restart before enabling.
+# Native protocol clients on Minecraft 1.20.5+ only. Other clients keep original lore.
+# Applies to player storage/hotbar packets, not chests, cursors, armor or GUI icons.
+# All values below reload. Display only: server items and transaction quotes stay authoritative.
+enabled: false
+show-unit-price: false
+# Refresh on inventory packets, at most once per second. No repeating inventory scans.
+cache-seconds: 5
+# Unit price makes an additional quote; non-linear shops can price a stack differently.
+# Lines using %unit_money% are omitted when show-unit-price is false.
+lines:
+  - ''
+  - '<#8ce8c0>✦ <#dceef5>Sell value <dark_gray>› <#f4d58d>%money%'
+  - '<gray>Each <dark_gray>› <#b7dff4>%unit_money%'
+  - '<gray>Multiplier <dark_gray>› <#8ce8c0>×%multiplier%'

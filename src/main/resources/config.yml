@@ -1,0 +1,50 @@
+config-version: 1
+# Add lang/<locale>.yml, then reload. Missing messages fall back to en_US.
+locale: en_US
+sell:
+  allow-hand: true
+  allow-inventory: true
+  # Metadata includes names, lore, enchantments, damage and custom plugin data.
+  # Keep false to avoid accidentally selling valuable custom items at material prices.
+  # If true, containers and their contents can also be sold at the container's base price.
+  allow-metadata: false
+  cooldown-milliseconds: 750
+money:
+  # Round once per sale after multiplying the unrounded subtotal.
+  decimal-places: 2
+  rounding: HALF_UP # HALF_UP, HALF_EVEN, DOWN, UP, FLOOR, CEILING, HALF_DOWN
+  maximum-sale: '1000000000.00'
+  pattern: '#,##0.00'
+  locale: en-US
+  prefix: '$'
+  suffix: ''
+history:
+  # Show category amounts and permission/progression breakdown below each sale.
+  category-details: false
+  page-size: 8
+  date-pattern: 'yyyy-MM-dd HH:mm'
+  timezone: UTC
+multipliers:
+  enabled: false
+  selection: highest # highest, lowest, first-priority; never stacked
+  # Order determines first-priority. An empty map {} means no groups.
+  groups:
+    vip:
+      permission: wellsell.multiplier.vip
+      multiplier: '1.25'
+    vip-plus:
+      permission: wellsell.multiplier.vipplus
+      multiplier: '1.50'
+# Normal product messages come from the selected locale. Unlisted messages use CHAT.
+delivery:
+  sold: CHAT # CHAT, ACTION_BAR, TITLE, SUBTITLE, NONE
+  worth: CHAT
+sounds:
+  success: {enabled: true, name: ENTITY_EXPERIENCE_ORB_PICKUP, volume: 0.7, pitch: 1.2}
+  error: {enabled: false, name: BLOCK_NOTE_BLOCK_BASS, volume: 0.5, pitch: 0.8}
+
+# Reloadable aggregate leaderboards; old history remains included globally.
+leaderboard:
+  enabled: true
+  default-mode: TOTAL_EARNED # TOTAL_EARNED or TOTAL_ITEMS_SOLD
+  page-size: 8 # 1..50

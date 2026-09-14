@@ -1,0 +1,19 @@
+config-version: 1
+# Root names and aliases need a full restart. Names use lowercase letters,
+# digits, underscore or hyphen. Conflicts keep a /wellsell:<name> fallback.
+commands:
+  sell:
+    name: sell
+    aliases: [sat, satis]
+  worth:
+    name: worth
+    aliases: [deger]
+  history:
+    name: sellhistory
+    aliases: [sellhist]
+  top:
+    name: selltop
+    aliases: [topsellers]
+  admin:
+    name: wellsell
+    aliases: [wsell]

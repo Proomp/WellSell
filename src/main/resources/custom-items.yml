@@ -1,0 +1,7 @@
+config-version: 1
+# Reloadable. Trust only STRING PDC keys written by your own item plugin.
+# The stored value must be a namespaced identity, for example custom:ruby.
+# Display names/lore are never identifiers. Unknown custom identities are not sold
+# as ordinary vanilla materials. Enable CUSTOM_ITEMS in pricing.yml to use these rates.
+pdc-keys: [] # Example: [myitems:identity]
+prices: {} # Example: {'custom:ruby': 125.00}

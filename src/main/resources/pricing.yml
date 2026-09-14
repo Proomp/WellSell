@@ -1,0 +1,10 @@
+config-version: 1
+# Reloadable. False preserves integrations.yml prices.source semantics.
+enabled: false
+# FIRST_AVAILABLE fills unpriced components using the ordered providers.
+# HIGHEST/LOWEST compare only offers pricing the COMPLETE selection. Ties use priority.
+# Shop errors, permission denials and limits never trigger a silent fallback.
+strategy: FIRST_AVAILABLE
+providers: [CUSTOM_ITEMS, ECONOMYSHOPGUI, SHOPGUIPLUS, WELLSELL_PRICES]
+# Applies uniformly to all pipeline sources. Progression has its own enabled switch.
+apply-wellsell-multiplier: false

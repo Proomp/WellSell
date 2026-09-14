@@ -1,0 +1,19 @@
+config-version: 1
+# Reloadable. Disabled containers are never sold, even when sell.allow-metadata is true.
+# Every contained item must be safely priced; otherwise the WHOLE container stays.
+# include-container-value=false consumes the shell without paying for/counting it.
+# Block locks, loot tables and block PDC are rejected; item metadata needs explicit opt-in.
+maximum-depth: 2 # 1..3; nesting also needs opt-in on BOTH container types.
+maximum-components: 2048 # 36..4096; bounded work per inventory quote.
+shulker-box:
+  enabled: false
+  sell-contents: true
+  include-container-value: true
+  allow-nested-containers: false
+  allow-metadata: false
+bundles:
+  enabled: false # Requires runtime Bukkit BundleMeta getItems/setItems support.
+  sell-contents: true
+  include-container-value: true
+  allow-nested-containers: false
+  allow-metadata: false

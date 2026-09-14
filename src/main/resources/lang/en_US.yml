@@ -1,0 +1,207 @@
+config-version: 1
+
+meta:
+
+  locale: en_US
+
+  version: 1
+
+# Palette: mint success, sky blue guidance, soft gold value, coral errors.
+
+# All messages: %prefix%, %version%, %sell_command%, %worth_command%,
+
+# %history_command%, %admin_command%. Player replies also support %player%.
+
+# MiniMessage, RGB and legacy & colors are supported. Values cannot inject tags.
+
+# Delivery (chat/action bar/title/none) is configured separately in config.yml.
+
+messages:
+  migration-disabled: '%prefix% <#AAB7C4>Database copying is disabled. Configure an unused target and enable it in storage.yml, then restart.'
+  migration-usage: '%prefix% <#AAB7C4>Use <#7BDCE8>/%admin_command% migrate mysql'
+  migration-busy: '%prefix% <#F6CB77>Wait for active sales or the current database copy to finish, then try again.'
+  migration-start: '%prefix% <#7BDCE8>Copying your selling history… <#AAB7C4>Sales are paused while every table is verified.'
+  migration-success: |
+    %prefix% <#72E5BB>Database copy verified. <white>%amount% <#AAB7C4>sales preserved.
+    <#AAB7C4>The SQLite source is unchanged. Sales stay paused.
+    <#F6CB77>Stop the server, set storage.type to MARIADB, then restart.
+  migration-failed: '%prefix% <#F08080>Database copying could not finish. <#AAB7C4>Your source is intact; inspect the console before retrying.'
+  description-top: 'Explore the top sellers and category rankings'
+  top-usage: '%prefix% <#AAB7C4>Use <#7BDCE8>/%top_command% [category] [page] [--earned|--items]'
+  top-global: 'All categories'
+  top-earned: 'Money earned'
+  top-items: 'Items sold'
+  top-header: '<#7BDCE8><bold>TOP SELLERS</bold> <dark_gray>· <#AAB7C4>%category% · %mode%'
+  top-row-earned: ' <#F6CB77>#%rank% <white>%target% <dark_gray>› <#72E5BB>%money%'
+  top-row-items: ' <#F6CB77>#%rank% <white>%target% <dark_gray>› <#72E5BB>%amount% items'
+  top-empty: ' <#AAB7C4>A fresh leaderboard. Make the first sale!'
+  top-footer: '<dark_gray>──────── <#AAB7C4>Page %page%/%max_page% <dark_gray>────────'
+
+  statistics-loading: "%prefix% <#AAB7C4>Your selling journey is loading. <#F6CB77>Try again in a moment.</#F6CB77>"
+
+  prefix: '<gradient:#5EEAD4:#60A5FA><bold>WellSell</bold></gradient> <#475569>›</#475569>'
+
+  no-permission: '%prefix% <#FB7185>You do not have access to this command.'
+
+  player-only: '%prefix% <#CBD5E1>Join the server to use this command.'
+
+  disabled: '%prefix% <#94A3B8>This feature is currently turned off.'
+
+  busy: '%prefix% <#FCD34D>One moment… <#CBD5E1>Your previous request is still processing.'
+
+  cooldown: '%prefix% <#94A3B8>Take a short pause before your next sale.'
+
+  nothing-to-sell: '%prefix% <#CBD5E1>No sellable items found. <#94A3B8>Try another stack or check <#7DD3FC>/%worth_command%<gray>.'
+
+  invalid-amount: '%prefix% <#FB7185>Choose a whole number <#CBD5E1>from 1 to the number of items in your hand.'
+
+  sale-too-large: '%prefix% <#FCD34D>This sale is above the server limit. <#CBD5E1>Try a smaller selection.'
+
+  placeholder-loading: '…'
+
+  invalid-page: '%prefix% <#FB7185>That page is unavailable. <#CBD5E1>Choose a page from <white>1 <#94A3B8>to <white>%max_page%<gray>.'
+
+  invalid-command: '%prefix% <#CBD5E1>Looking for a command? <#7DD3FC>/%admin_command% help'
+
+  economy-unavailable: '%prefix% <#FCD34D>Payments are temporarily unavailable. <#CBD5E1>Your items have not been sold.'
+
+  storage-unavailable: '%prefix% <#FCD34D>Sales are temporarily unavailable. <#CBD5E1>Please try again shortly.'
+
+  prices-unavailable: '%prefix% <#FCD34D>The shop cannot price this selection right now. <#CBD5E1>Try fewer items or ask staff to check the price integration.'
+
+  price-changed: '%prefix% <#FCD34D>The shop price changed. <#CBD5E1>Your items were kept; review their value and sell again.'
+
+  inventory-changed: '%prefix% <#FCD34D>Your selection changed. <#CBD5E1>Nothing was sold—select your items again.'
+
+  cancelled: '%prefix% <#94A3B8>Sale cancelled. <#CBD5E1>Your items were kept.'
+
+  payment-rejected: '%prefix% <#FB7185>The payment was declined. <#CBD5E1>Your items have been returned.'
+
+  # uncertain: %transaction% is the audit reference for staff. Never suggest retrying.
+
+  uncertain: |-
+
+    %prefix% <#FB7185><bold>This sale needs a staff review.</bold>
+
+      <#CBD5E1>Please do not repeat the sale or request a second payment.
+
+      <#94A3B8>Reference <#475569>› <white>%transaction%
+
+  internal-error: '%prefix% <#FB7185>We could not complete that request. <#CBD5E1>Please let server staff know.'
+
+  processing: '%prefix% <#94A3B8>Checking your items and preparing the sale…'
+
+  # sold/worth: %amount%, %money%, %multiplier%, %item%; sold also has %transaction%.
+
+  sold: '%prefix% <#5EEAD4>✓ <#CBD5E1>Sold <white>%amount%</white> items <#475569>· <gradient:#FDE68A:#FBBF24><bold>+%money%</bold></gradient> <#64748B>(×%multiplier%)'
+
+  worth: '%prefix% <white>%amount%</white> <#CBD5E1>sellable items <#475569>› <gradient:#FDE68A:#FBBF24><bold>%money%</bold></gradient> <#64748B>(×%multiplier%)'
+
+  reloaded: '%prefix% <#5EEAD4>✓ <#CBD5E1>Settings, prices, permissions and messages are up to date.'
+
+  restart-required: '%prefix% <#FCD34D>A restart is still needed <#CBD5E1>for changes to commands, storage or integrations.'
+
+  reload-failed: '%prefix% <#FB7185>Reload could not finish. <#CBD5E1>Your previous settings are active; check the console for details.'
+
+  reload-busy: '%prefix% <#FCD34D>A reload is already running. <#CBD5E1>Please wait a moment.'
+
+  # info: %platform%, %economy%, %storage%, %prices%, %locale%, %folia%, %price_source%.
+
+  info: |-
+
+    <newline>%prefix% <white><bold>Server overview</bold> <#64748B>v%version%
+
+      <#94A3B8>Platform <#475569>› <#CBD5E1>%platform% <#64748B>· Folia %folia%
+
+      <#94A3B8>Economy  <#475569>› <#CBD5E1>%economy%
+
+      <#94A3B8>Storage  <#475569>› <#CBD5E1>%storage%
+
+      <#94A3B8>Pricing  <#475569>› <#7DD3FC>%price_source% <#64748B>· %prices% local prices
+
+      <#94A3B8>Language <#475569>› <#CBD5E1>%locale%
+
+  help: |
+    <#7BDCE8>/%admin_command% migrate mysql <#AAB7C4>— Copy SQLite data to the configured database
+    <#7BDCE8>/%top_command% [category] [page] <#AAB7C4>— Explore the top sellers
+
+    <#7BDCE8>/%sell_command% progress <#AAB7C4>— Your category levels and bonuses-
+
+    <newline>%prefix% <white><bold>A little less inventory. A little more balance.</bold>
+
+      <#7DD3FC>/%sell_command% hand [amount] <#475569>— <#CBD5E1>Sell the items you are holding
+
+      <#7DD3FC>/%sell_command% inventory <#475569>— <#CBD5E1>Sell eligible inventory items
+
+      <#7DD3FC>/%sell_command% gui <#475569>— <#CBD5E1>Pick items and confirm your sale
+
+      <#7DD3FC>/%worth_command% [hand|inventory] <#475569>— <#CBD5E1>Check before you sell
+
+      <#7DD3FC>/%history_command% [player] [page] <#475569>— <#CBD5E1>Browse completed sales
+
+      <#64748B>Staff: /%admin_command% info · reload · prices import <economyshopgui|shopguiplus>
+
+  description-sell: 'Turn eligible items into balance'
+
+  description-worth: 'Preview the value of your items'
+
+  description-history: 'Your completed sales, one page at a time'
+
+  description-admin: 'WellSell help, settings and price imports'
+
+  # history-header/navigation: %target%, %page%, %max_page%, %previous%, %next%.
+
+  history-header: '<newline>%prefix% <white><bold>%target%</bold></white> <#94A3B8>· Sale history <#64748B>%page%/%max_page%'
+
+  # history-row also supports %provider%, %containers% and %categories%.
+
+  history-row: '  <#5EEAD4>+ <white>%money%</white> <#475569>│ <#CBD5E1>%amount% items <#64748B>· %source% · ×%multiplier%<newline>    <#64748B>%date% <#475569>· <#94A3B8>%provider% <#475569>· <#94A3B8>%containers% containers'
+
+  history-category: '    <#7DD3FC>%category% <#475569>› <#CBD5E1>%amount% items <#475569>· <#5EEAD4>%money%<newline>      <#64748B>Permission ×%permission_multiplier% · Progress ×%progression_multiplier% · Applied ×%multiplier%'
+
+  history-navigation: '  <#94A3B8>Page <white>%page%</white>/<white>%max_page%</white> <#475569>· <#7DD3FC>/%history_command% %target% %next%'
+
+  history-empty: '%prefix% <#94A3B8>No completed sales here yet. <#CBD5E1>Your next sale could be the first.'
+
+  history-error: '%prefix% <#FCD34D>History is taking a break. <#CBD5E1>Please try again shortly.'
+
+  player-not-found: '%prefix% <#CBD5E1>No sales match that player. <#94A3B8>Check the name or try their UUID.'
+
+  source-hand: 'Hand'
+
+  source-inventory: 'Inventory'
+
+  source-gui: 'Selection'
+
+  gui-full: '%prefix% <#FCD34D>Your selection is full. <#CBD5E1>Confirm it or click a preview to make room.'
+
+  gui-hint: '%prefix% <#7DD3FC>Click a stack to select it; right-click for one. <#CBD5E1>Review the value, then confirm.'
+
+  # Price import: %source%; done also has %amount% and %backup%.
+
+  price-import-usage: '%prefix% <#CBD5E1>Use <#7DD3FC>/%admin_command% prices import <economyshopgui|shopguiplus>'
+
+  price-import-disabled: '%prefix% <#FCD34D>Price imports are turned off. <#CBD5E1>Enable <white>prices.import-enabled</white> in integrations.yml and restart.'
+
+  price-import-busy: '%prefix% <#FCD34D>A price import is already running.'
+
+  price-import-start: '%prefix% <#7DD3FC>Reading %source% base prices… <#94A3B8>This runs in small batches.'
+
+  price-import-empty: '%prefix% <#FCD34D>No eligible base prices were found. <#CBD5E1>Your prices.yml was kept.'
+
+  price-import-done: |-
+
+    %prefix% <#5EEAD4>✓ <#CBD5E1>Imported <white>%amount%</white> material prices from <#7DD3FC>%source%</#7DD3FC>.
+
+      <#94A3B8>Backup <#475569>› <#CBD5E1>%backup%
+
+      <#CBD5E1>Run <#7DD3FC>/%admin_command% reload <#CBD5E1>to refresh local prices. Live pricing keeps using its selected shop.
+
+  price-import-error: '%prefix% <#FB7185>The import could not finish. <#CBD5E1>Check the console before retrying; the original or its backup is retained.'
+
+  # update: %latest%, %version%.
+
+  update: '%prefix% <#7DD3FC>A fresh version is available: <white>%latest%</white><#CBD5E1>. <#64748B>Installed: %version%'
+
+  startup: 'WellSell %version% ready · %platform% · Pricing: %price_source% · %prices% local prices · %locale%'
+

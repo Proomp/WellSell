@@ -1,0 +1,20 @@
+config-version: 1
+# Defaults: true, false or op. Permissions and defaults apply after reload.
+# Grant the root permission AND the relevant subcommand permission.
+permissions:
+  migrate: {node: wellsell.admin.migrate, default: op}
+  price-import:
+    node: wellsell.admin.prices.import
+    default: op
+  sell: {node: wellsell.sell, default: true}
+  sell-hand: {node: wellsell.sell.hand, default: true}
+  sell-inventory: {node: wellsell.sell.inventory, default: true}
+  progress: {node: wellsell.progress, default: true}
+  gui: {node: wellsell.sell.gui, default: true}
+  worth-lore: {node: wellsell.worthlore, default: true}
+  worth: {node: wellsell.worth, default: true}
+  top: {node: wellsell.top, default: true}
+  history: {node: wellsell.history, default: true}
+  history-others: {node: wellsell.history.others, default: op}
+  reload: {node: wellsell.admin.reload, default: op}
+  admin: {node: wellsell.admin, default: op}

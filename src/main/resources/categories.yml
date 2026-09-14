@@ -1,0 +1,40 @@
+config-version: 1
+# Reloadable. First listed category wins, or overlaps remain uncategorized with REQUIRE_UNIQUE.
+resolution: FIRST_PRIORITY # FIRST_PRIORITY or REQUIRE_UNIQUE
+uncategorized: misc # Empty string leaves unmatched items without a category.
+categories:
+  ores:
+    enabled: true
+    display-name: '<gradient:#67E8F9:#60A5FA>Ores & Minerals</gradient>'
+    icon: DIAMOND
+    materials: [DIAMOND, EMERALD, IRON_INGOT, GOLD_INGOT, COPPER_INGOT, COAL, LAPIS_LAZULI, REDSTONE, QUARTZ]
+  farming:
+    enabled: true
+    display-name: '<#BEF264>Harvest</#BEF264>'
+    icon: WHEAT
+    materials: [WHEAT, CARROT, POTATO, BEETROOT, PUMPKIN, MELON_SLICE, SUGAR_CANE, CACTUS, BAMBOO, COCOA_BEANS]
+  mob_drops:
+    enabled: true
+    display-name: '<#FCA5A5>Mob Drops</#FCA5A5>'
+    icon: BONE
+    materials: [BONE, ROTTEN_FLESH, STRING, SPIDER_EYE, GUNPOWDER, ENDER_PEARL, BLAZE_ROD, SLIME_BALL]
+  fishing:
+    enabled: true
+    display-name: '<#7DD3FC>Fishing</#7DD3FC>'
+    icon: COD
+    materials: [COD, SALMON, TROPICAL_FISH, PUFFERFISH]
+  wood:
+    enabled: true
+    display-name: '<#D9B98F>Woodland</#D9B98F>'
+    icon: OAK_LOG
+    materials: [OAK_LOG, SPRUCE_LOG, BIRCH_LOG, JUNGLE_LOG, ACACIA_LOG, DARK_OAK_LOG, MANGROVE_LOG, CHERRY_LOG]
+  blocks:
+    enabled: true
+    display-name: '<#CBD5E1>Building Blocks</#CBD5E1>'
+    icon: STONE
+    materials: [STONE, COBBLESTONE, DEEPSLATE, COBBLED_DEEPSLATE, DIRT, GRAVEL, SAND, GLASS, CLAY_BALL]
+  misc:
+    enabled: true
+    display-name: '<#C4B5FD>Discoveries</#C4B5FD>'
+    icon: CHEST
+    materials: []

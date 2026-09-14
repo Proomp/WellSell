@@ -1,0 +1,17 @@
+config-version: 1
+# Storage settings require a full restart. Selling stays unavailable until ready.
+type: SQLITE # SQLITE or MARIADB (also supports MySQL-compatible servers)
+sqlite-file: history.db
+mariadb:
+  # Set TLS appropriately for your database. Do not commit credentials.
+  url: 'jdbc:mariadb://localhost:3306/wellsell?connectTimeout=5000&socketTimeout=10000'
+  username: wellsell
+  password: ''
+# An async local intent journal is written before any inventory mutation.
+# Never delete pending/uncertain audit records without reconciling them first.
+
+# Enable only for an unused MariaDB/MySQL target configured above. Restart required.
+# /wellsell migrate mysql copies and verifies data without deleting the SQLite source.
+# Successful copying keeps sales PAUSED until restart. Stop the server, set type to
+# MARIADB, then restart. Do not run another WellSell server against the target during copying.
+migration-enabled: false

@@ -1,0 +1,34 @@
+config-version: 1
+# Integration startup settings need a restart; Vault providers are discovered per sale.
+vault:
+  enabled: true
+  # Vault does not certify provider thread safety. Set true on Folia ONLY after
+  # confirming your economy provider supports concurrent region-thread deposits.
+  allow-on-folia: false
+placeholderapi:
+  top-positions: 100 # 1..100; bounded global leaderboard cache
+  cache-seconds: 30 # 1..300; rank/leaderboard freshness, restart required
+  enabled: true
+bstats:
+  enabled: false
+  # WellSell's registered project ID is fixed in the plugin: 34018.
+prices:
+  # CONFIG uses prices.yml. ECONOMYSHOPGUI and SHOPGUIPLUS read live shop sell prices.
+  # Live prices automatically follow shop reloads, player permissions and modifiers.
+  source: CONFIG
+  # Allow /wellsell prices import <economyshopgui|shopguiplus>.
+  # Imports plain material base rates into prices.yml with a timestamped backup.
+  # Importing does not change the selected live source. Reload to use imported CONFIG prices.
+  import-enabled: false
+  # Shop modifiers already affect live quotes. Enable only to ALSO apply WellSell ranks.
+  apply-wellsell-multiplier: false
+  # External shop APIs must explicitly support Folia region threads before enabling this.
+  # This is independent of vault.allow-on-folia. CONFIG pricing works without it.
+  allow-on-folia: false
+update-checker:
+  enabled: false
+  # HTTPS endpoint containing only the latest stable version, for example 1.0.1.
+  # No official release endpoint has been assigned yet. Never downloads a plugin.
+  version-url: ''
+  notify-console: true
+  notify-admins: true

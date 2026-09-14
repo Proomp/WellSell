@@ -1,0 +1,74 @@
+config-version: 1
+# Reloadable. Slots are zero-based; cards and navigation cannot overlap.
+# Cards use the icon in categories.yml when use-category-icon is true.
+gui:
+  enabled: true
+  title: '<gradient:#72E5BB:#7BDCE8>Your Selling Journey</gradient> <dark_gray>· %page%/%max_page%'
+  rows: 4
+  category-slots: [10, 11, 12, 13, 14, 15, 16]
+  progress-bar:
+    width: 16 # 1..40
+    filled: '▰'
+    empty: '▱'
+    format: '<#72E5BB>%filled%<#354553>%empty%'
+  category:
+    use-category-icon: true
+    material: DIAMOND
+    amount: 1
+    custom-model-data: 0
+    glow: false
+    name: '%category%'
+    lore:
+      - '<#AAB7C4>Level <white>%level% <dark_gray>· <#72E5BB>×%multiplier%'
+      - ''
+      - '<#AAB7C4>Earned <#F6CB77>%earned%'
+      - '<#AAB7C4>Items sold <white>%items%'
+      - ''
+      - '%progress_bar% <#7BDCE8>%progress%%'
+      - '<#AAB7C4>Next threshold <white>%next_required%'
+      - '<#AAB7C4>Next bonus <#72E5BB>×%next_multiplier%'
+    sound: {enabled: true, name: UI_BUTTON_CLICK, volume: 0.3, pitch: 1.2}
+  previous:
+    slot: 27
+    material: ARROW
+    amount: 1
+    custom-model-data: 0
+    glow: false
+    name: '<#7BDCE8>Previous page'
+    lore: ['<#AAB7C4>Explore earlier categories.']
+    sound: {enabled: true, name: UI_BUTTON_CLICK, volume: 0.3, pitch: 1.0}
+  next:
+    slot: 35
+    material: ARROW
+    amount: 1
+    custom-model-data: 0
+    glow: false
+    name: '<#7BDCE8>Next page'
+    lore: ['<#AAB7C4>Explore more categories.']
+    sound: {enabled: true, name: UI_BUTTON_CLICK, volume: 0.3, pitch: 1.0}
+  back:
+    slot: 31
+    material: OAK_DOOR
+    amount: 1
+    custom-model-data: 0
+    glow: false
+    name: '<#F6CB77>Back to your adventure'
+    lore: ['<#AAB7C4>Close this menu.']
+    sound: {enabled: true, name: UI_BUTTON_CLICK, volume: 0.3, pitch: 1.0}
+  info:
+    slot: 29
+    material: BOOK
+    amount: 1
+    custom-model-data: 0
+    glow: false
+    name: '<#72E5BB>Every sale counts'
+    lore: ['<#AAB7C4>Sell items to grow your category totals.', '<#AAB7C4>Bonuses follow the server progression settings.']
+    sound: {enabled: true, name: UI_BUTTON_CLICK, volume: 0.3, pitch: 1.0}
+  filler:
+    material: BLACK_STAINED_GLASS_PANE
+    amount: 1
+    custom-model-data: 0
+    glow: false
+    name: ' '
+    lore: []
+    sound: {enabled: false, name: UI_BUTTON_CLICK, volume: 0.3, pitch: 1.0}
